@@ -8,8 +8,8 @@ def dice_coefficient(pred_mask, true_mask):
     return dice
 
 # Load the generated mask and ground truth mask images
-generated_mask_path = r'C:\Proxmed\predicted_mask.jpg'  # Replace with actual path
-ground_truth_mask_path = r'C:\Proxmed\Dataset Proxmed\extracts\New folder\enhanced_vessel_image\Anon1.jpg'  # Replace with actual path
+generated_mask_path = r'C:\Proxmed\predicted_mask.jpg' 
+ground_truth_mask_path = r'C:\Proxmed\Dataset Proxmed\extracts\New folder\brain_mask\Anon1.jpg'  
 
 generated_mask_image = Image.open(generated_mask_path)
 generated_mask_image = generated_mask_image.resize((256, 256))
@@ -22,7 +22,7 @@ ground_truth_mask_image = ground_truth_mask_image.resize((256, 256))
 generated_mask = np.array(generated_mask_image)
 ground_truth_mask = np.array(ground_truth_mask_image)
 
-# Convert to binary masks (using a threshold, adjust as needed)
+# Convert to binary masks
 threshold = 0.5
 generated_mask_binary = (generated_mask > threshold).astype(np.uint8)
 ground_truth_mask_binary = (ground_truth_mask > 0).astype(np.uint8)

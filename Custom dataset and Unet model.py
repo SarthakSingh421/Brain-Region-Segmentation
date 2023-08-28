@@ -152,44 +152,44 @@ torch.save(model.state_dict(), "unet_brain_mask_model.pth")
 
 
 
-# model = UNet(in_channels=1, out_channels=1)
-# model.load_state_dict(torch.load(r"C:\Proxmed\unet_brain_mask_model.pth"))
-# model.eval()
+ model = UNet(in_channels=1, out_channels=1)
+ model.load_state_dict(torch.load(r"C:\Proxmed\unet_brain_mask_model.pth"))
+ model.eval()
 
-# input_image_path = r"C:\Proxmed\Dataset Proxmed\extracts\New folder\cta_image\Anon1.jpg"
-# input_image = Image.open(input_image_path).convert('L')
+ input_image_path = r"C:\Proxmed\Dataset Proxmed\extracts\New folder\cta_image\Anon1.jpg"
+ input_image = Image.open(input_image_path).convert('L')
 
-# transform = transforms.Compose([
-#     transforms.Resize((512, 512)),  
-#     transforms.ToTensor(),
-#     transforms.Normalize(mean=[0.5], std=[0.5])  
-# ])
+ transform = transforms.Compose([
+     transforms.Resize((512, 512)),  
+     transforms.ToTensor(),
+     transforms.Normalize(mean=[0.5], std=[0.5])  
+ ])
 
-# input_image = transform(input_image)
-# input_image = input_image.unsqueeze(0)  
-# input_image = input_image.to("cuda" if torch.cuda.is_available() else "cpu")  # Move to device
+ input_image = transform(input_image)
+ input_image = input_image.unsqueeze(0)  
+ input_image = input_image.to("cuda" if torch.cuda.is_available() else "cpu")  # Move to device
 
-# # Make predictions
-# with torch.no_grad():
-#     predicted_mask = model(input_image)
+ # Make predictions
+ with torch.no_grad():
+     predicted_mask = model(input_image)
 
-# # Post-process the output (apply thresholding)
-# threshold = 0.5
-# binary_mask = (predicted_mask > threshold).float()
+# Post-process the output (apply thresholding)
+ threshold = 0.5
+ binary_mask = (predicted_mask > threshold).float()
 
-# # Convert to numpy array
-# binary_mask = binary_mask.squeeze().cpu().numpy()
-# binary_mask_pil = Image.fromarray((binary_mask * 255).astype(np.uint8))
+ # Convert to numpy array
+ binary_mask = binary_mask.squeeze().cpu().numpy()
+ binary_mask_pil = Image.fromarray((binary_mask * 255).astype(np.uint8))
 
-# # # Save the PIL Image as a JPG file
-# # binary_mask_pil.save("predicted_mask.jpg")
+# Save the PIL Image as a JPG file
+ binary_mask_pil.save("predicted_mask.jpg")
 
-# # print("Predicted mask saved as predicted_mask.jpg")
+ print("Predicted mask saved as predicted_mask.jpg")
 
-# # Visualize the input image and predicted mask
-# fig, axes = plt.subplots(1, 2, figsize=(12, 6))
-# axes[0].imshow(input_image.squeeze().cpu().numpy(), cmap='gray')
-# axes[0].set_title("Input Image")
-# axes[1].imshow(binary_mask_pil, cmap='gray')
-# axes[1].set_title("Predicted Mask")
-# plt.show()
+# Visualize the input image and predicted mask
+ fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+ axes[0].imshow(input_image.squeeze().cpu().numpy(), cmap='gray')
+ axes[0].set_title("Input Image")
+ axes[1].imshow(binary_mask_pil, cmap='gray')
+ axes[1].set_title("Predicted Mask")
+ plt.show()

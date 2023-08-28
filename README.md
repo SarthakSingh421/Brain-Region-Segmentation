@@ -32,3 +32,35 @@ We generate a custom dataset and convert it into a tensor dataset suitable for t
 Evaluation
 The model's MSE value becomes constant after a certain number of iterations and the model doesnot generate the desired output
 After training, the model's performance is evaluated using various metrics, including the Dice score. However, am currently experiencing an issue where the Dice score evaluation is consistently zero. I am actively investigating this issue and working on a solution to improve the model's performance.
+
+this was the model's training result 
+Epoch [1/30] Batch [1/1] Loss: 1.2363
+Epoch [2/30] Batch [1/1] Loss: 1.2279
+Epoch [3/30] Batch [1/1] Loss: 1.2038
+Epoch [4/30] Batch [1/1] Loss: 1.1205
+Epoch [5/30] Batch [1/1] Loss: 0.9204
+Epoch [6/30] Batch [1/1] Loss: 0.7273
+Epoch [7/30] Batch [1/1] Loss: 0.6941
+Epoch [8/30] Batch [1/1] Loss: 0.6932
+Epoch [9/30] Batch [1/1] Loss: 0.6931
+Epoch [10/30] Batch [1/1] Loss: 0.6931
+Epoch [11/30] Batch [1/1] Loss: 0.6931
+Epoch [12/30] Batch [1/1] Loss: 0.6931
+Epoch [13/30] Batch [1/1] Loss: 0.6931
+Epoch [14/30] Batch [1/1] Loss: 0.6931
+Epoch [15/30] Batch [1/1] Loss: 0.6931
+Epoch [16/30] Batch [1/1] Loss: 0.6931
+Epoch [17/30] Batch [1/1] Loss: 0.6931
+Epoch [18/30] Batch [1/1] Loss: 0.6931
+Epoch [19/30] Batch [1/1] Loss: 0.6931
+Epoch [20/30] Batch [1/1] Loss: 0.6931
+Epoch [21/30] Batch [1/1] Loss: 0.6931
+Epoch [22/30] Batch [1/1] Loss: 0.6931
+Epoch [23/30] Batch [1/1] Loss: 0.6931
+Epoch [24/30] Batch [1/1] Loss: 0.6931
+Epoch [25/30] Batch [1/1] Loss: 0.6931
+Epoch [26/30] Batch [1/1] Loss: 0.6931
+Epoch [27/30] Batch [1/1] Loss: 0.6931
+Epoch [28/30] Batch [1/1] Loss: 0.6931
+Epoch [29/30] Batch [1/1] Loss: 0.6931
+Epoch [30/30] Batch [1/1] Loss: 0.6931

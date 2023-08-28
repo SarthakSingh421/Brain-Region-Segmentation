@@ -1,7 +1,7 @@
 import os
 import shutil
 
-# Path to the main folder containing subfolders
+# Path to the main folder 
 main_folder = r'C:\Proxmed\Extracted'
 
 # Paths to the new folders for CTA images and brain masks
@@ -15,7 +15,7 @@ for subfolder_name in os.listdir(main_folder):
         cta_file = None
         mask_file = None
         
-        # Find CTA image and mask files in the subfolder
+        # Find CTA image and mask files 
         for file_name in os.listdir(subfolder_path):
             if file_name.endswith('.nii.gz'):
                 if 'ROI' in file_name:
@@ -23,7 +23,7 @@ for subfolder_name in os.listdir(main_folder):
                 else:
                     cta_file = os.path.join(subfolder_path, file_name)
         
-        # Move files to the respective folders if found
+        # Move files to the respective folders
         if cta_file:
             cta_dest = os.path.join(cta_folder, os.path.basename(cta_file))
             if os.path.exists(cta_dest):

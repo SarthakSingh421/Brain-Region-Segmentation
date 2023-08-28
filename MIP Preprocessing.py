@@ -9,7 +9,7 @@ mask_directory = r"C:/Proxmed/Extracted/Brain Masks"
 output_cta_directory = r"C:/Proxmed/CTA_MIPs"
 output_mask_directory = r"C:/Proxmed/Mask_MIPs"
 
-# Create output directories if they don't exist
+# Create output directories 
 os.makedirs(output_cta_directory, exist_ok=True)
 os.makedirs(output_mask_directory, exist_ok=True)
 

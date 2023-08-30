@@ -1,0 +1,12 @@
+Preprocessing
+
+  For each CTA/Brain Mask image in NIfTI format (ending with '.nii.gz'),  the image is loaded using nib.load() and extracts the image data using .get_fdata().
+
+  Maximum Intensity Projection (MIP):
+
+  The code calculates the Maximum Intensity Projection (MIP) along the z-axis (axis=2) of the CTA image data using np.max(cta_data, axis=2).
+  Normalization and Conversion:
+
+  The MIP data is normalized to the range [0, 255] using cv2.normalize().
+  It's then converted to an 8-bit unsigned integer image (CV_8U) using cv2.CV_8U.
+

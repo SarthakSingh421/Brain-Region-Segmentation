@@ -1,3 +1,11 @@
+Data Prepration 
+  The code uses Shutil library for copying and moving files extracted through 7 zip
+  For each item that is a subfolder (identified using os.path.isdir()), it proceeds to find CTA image and mask files.
+  The code looks for files within each subfolder.
+  If a file has the '.nii.gz' extension and contains 'ROI' in its name, it's identified as a mask file. Otherwise, it's identified as a CTA image file
+  Results are saved separately as brain mask and cta image.
+
+
 Preprocessing
 
   For each CTA/Brain Mask image in NIfTI format (ending with '.nii.gz'),  the image is loaded using nib.load() and extracts the image data using .get_fdata().
@@ -9,4 +17,5 @@ Preprocessing
 
   The MIP data is normalized to the range [0, 255] using cv2.normalize().
   It's then converted to an 8-bit unsigned integer image (CV_8U) using cv2.CV_8U.
+
 

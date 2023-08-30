@@ -18,4 +18,35 @@ Preprocessing
   The MIP data is normalized to the range [0, 255] using cv2.normalize().
   It's then converted to an 8-bit unsigned integer image (CV_8U) using cv2.CV_8U.
 
-
+Custom dataset generation and Unet model
+  (CustomDataset) that inherits from Dataset. This class loads CTA images and corresponding brain mask images, performs resizing and transformations, and provides data samples.
+  (UNet) that inherits from nn.Module. The UNet architecture consists of an encoder, middle section, and decoder.
+  (train_loader) for loading data in batches for training.
+  UNet Model Architecture:
+  
+  Encoder:
+  Number of input channels: 1 (Grayscale image)
+  Number of output channels: 64
+  Kernel size: 3x3
+  Padding: 1
+  Activation function: ReLU
+  Middle:
+  Number of input channels: 64
+  Number of output channels: 128
+  Kernel size: 3x3
+  Padding: 1
+  Activation function: ReLU
+  Decoder:
+  Number of input channels: 128
+  Number of output channels: 1
+  Kernel size: 3x3
+  Padding: 1
+  Activation function: ReLU (for first two layers), Sigmoid (final layer)
+  Training Parameters:
+  
+  Learning rate: 0.001
+  Loss function: Binary Cross-Entropy with logits (nn.BCEWithLogitsLoss())
+  Optimization algorithm: Adam (optim.Adam)
+  Number of epochs: 30
+  Batch size: 32
+  interpolate function for resizing
